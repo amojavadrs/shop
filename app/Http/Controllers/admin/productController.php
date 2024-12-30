@@ -57,7 +57,7 @@ class productController extends Controller
                 $in->save();
             }
             $prd=Product::findorFail($in->id);
-            $att = Attribute::where('category_id',$cat)->get();
+            $att=Attribute::where('category_id',$cat)->get();
             foreach ($att as $a) {
                 $vl=$request->input('att'.$a->id);
                 $prd->attributes()->attach($a->id,['value'=>$vl]);

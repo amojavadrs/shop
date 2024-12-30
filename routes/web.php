@@ -1,15 +1,79 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Auth\AdminLoginController;
+use App\Http\Controllers\admin\productController;
+
+
 /*
- * admin
- */
-Route::get('/admin', function () {
-    return view('admin.master');
+|--------------------------------------------------------------------------
+| Client Routes
+|--------------------------------------------------------------------------
+*/
+Route::get('/',[\App\Http\Controllers\clientController::class,'index'])->name('firstpage');
+Route::middleware('auth')->prefix('/client')->group(function () {
+    Route::get('/', function () {
+        // Ensure only clients can access
+        if (Auth::user()->role !== 'client') {
+            return redirect()->route('login'); // Redirect to login if not a client
+        }
+        return view('client.home');
+    })->name('home');
+
+    Route::get('/home', function () {
+        if (Auth::user()->role !== 'client') {
+            return redirect()->route('login');
+        }
+        return view('client.home');
+    });
 });
 
-//menu
+    Route::get('/profile', [\App\Http\Controllers\UserController::class, 'edit'])->name('profile.edit');
+    Route::post('/profile', [\App\Http\Controllers\UserController::class, 'update'])->name('profile.update');
 
+/*
+|--------------------------------------------------------------------------
+| Admin Routes
+|--------------------------------------------------------------------------
+*/
+Route::prefix('/admin')->group(function () {
+    // Admin login route (without authentication)
+    Route::get('/login', function () {
+        return view('auth.admin-login');
+    })->name('admin.login');
+
+    Route::middleware('auth')->group(function () {
+        Route::get('/', function () {
+            // Ensure only admins can access
+            if (Auth::user()->role !== 'admin') {
+                return redirect()->route('admin.login'); // Redirect to admin login if not an admin
+            }
+            return view('admin.master');
+        })->name('admin.dashboard');
+
+        Route::get('/profile', function () {
+            if (Auth::user()->role !== 'admin') {
+                return redirect()->route('admin.login');
+            }
+            $user = Auth::user(); // Get the logged-in admin data
+            return view('admin.profile', compact('user')); // Return the profile view
+        })->name('admin.profile');
+    });
+});
+Route::get('/admin/login', function () {
+    if (Auth::check() && Auth::user()->role === 'client') {
+        return redirect()->route('home'); // Redirect clients to their home page
+    }
+
+    return view('auth.admin-login');
+})->name('admin.login');
+
+
+
+/*
+ * Gallery Routes
+ */
 Route::get('/admin/create/gallery', [\App\Http\Controllers\admin\galleryController::class, 'create'])->name('admin.create.gallery');
 Route::post('/admin/store/gallery', [\App\Http\Controllers\admin\galleryController::class, 'store'])->name('admin.store.gallery');
 Route::get('/admin/list/gallery', [\App\Http\Controllers\admin\galleryController::class, 'list'])->name('admin.list.gallery');
@@ -17,19 +81,22 @@ Route::get('/admin/edit/gallery/{id}', [\App\Http\Controllers\admin\galleryContr
 Route::post('/admin/update/gallery/{id}', [\App\Http\Controllers\admin\galleryController::class, 'update'])->name('admin.update.gallery');
 Route::delete('/admin/delete/gallery/{id}', [\App\Http\Controllers\admin\galleryController::class, 'destroy'])->name('admin.delete.gallery');
 Route::get('admin/show/gallery/{id}', [\App\Http\Controllers\admin\galleryController::class, 'download'])->name('gallery.show');
+
 /*
- *
+ * Picture Routes
  */
-Route::resource('/admin/picture' , \App\Http\Controllers\admin\pictureController::class)->except(['update']);
+Route::resource('/admin/picture', \App\Http\Controllers\admin\pictureController::class)->except(['update']);
 Route::post('/admin/update/picture/{id}', [\App\Http\Controllers\admin\pictureController::class, 'update'])->name('picture.update');
 Route::get('/admin/show/picture/{id}', [\App\Http\Controllers\admin\pictureController::class, 'download'])->name('picture.show');
+
 /*
- *
+ * Menu Routes
  */
 Route::resource('/admin/menu', \App\Http\Controllers\admin\menuController::class)->except(['update']);
 Route::post('/admin/update/menu/{id}', [\App\Http\Controllers\admin\menuController::class, 'update'])->name('menu.update');
+
 /*
- *
+ * Picture Gallery Routes
  */
 Route::get('admin/picture/gallery/list',[\App\Http\Controllers\admin\picgalleryController::class, 'index'])->name('picturegal.index');
 Route::get('admin/picture/gallery/show/{id}',[\App\Http\Controllers\admin\picgalleryController::class, 'show'])->name('picturegal.show');
@@ -68,6 +135,6 @@ Route::delete('/admin/delete/product/{id}', [\App\Http\Controllers\admin\product
 /*
  * client
  */
-$menus=\App\Models\admin\Menu::all();
-$pages=\App\Models\admin\Page::all();
-$pictures=\App\Models\admin\Picture::all();
+Route::get('product/details/{id}',[\App\Http\Controllers\clientController::class,'details'])->name('product.details');
+Auth::routes();
+
