@@ -14,7 +14,7 @@
                         <div class="d-flex align-items-center mb-3">
                             @if(auth()->user()->profile_picture)
                                 <img
-                                    src="{{ asset('storage/' . auth()->user()->profile_picture) }}"
+                                    src="{{route('profile.pic',['id'=>auth()->user()->id])}}"
                                     alt="User Profile Picture"
                                     class="img-fluid mx-4"
                                     width="100"

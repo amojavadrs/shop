@@ -1,386 +1,309 @@
-{{--<!DOCTYPE html>--}}
-{{--<html lang="en" dir="rtl">--}}
-{{--<head>--}}
-{{--    <meta charset="UTF-8">--}}
-{{--    <meta name="viewport" content="width=device-width, initial-scale=1.0">--}}
-{{--    <title>Z.shop</title>--}}
-{{--    --}}{{--    slider--}}
-{{--    <link--}}
-{{--        rel="stylesheet"--}}
-{{--        href="{{asset('package slider/swiper-bundle.min.css')}}"--}}
-{{--    />--}}
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyShop</title>
+    {{-- Slider --}}
+    <link rel="stylesheet" href="{{ asset('package slider/swiper-bundle.min.css') }}" />
+    <script src="{{ asset('package slider/swiper-bundle.min.js') }}"></script>
+    {{-- Fullpage --}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('fullPage.js-master/dist/fullpage.css') }}">
+    <script src="{{ asset('fullPage.js-master/dist/fullpage.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('fullPage.js-master/dist/fullpage.min.js') }}"></script>
+    {{-- WOW.js --}}
+    <script src="{{ asset('WOW-master/dist/wow.min.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('WOW-master/css/libs/animate.css') }}">
+    {{-- Bootstrap and Custom Styles --}}
+    <link type="text/css" rel="stylesheet" href="{{ asset('style/bootstrap.min.css') }}">
+    <link type="text/css" rel="stylesheet" href="{{ asset('A-Iranian-Sans/Iranian Sans.ttf') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('style/all.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('style/brands.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('style/style.css') }}">
 
-{{--    <script src="{{asset('package slider/swiper-bundle.min.js')}}"></script>--}}
-{{--    --}}{{--    fullpage--}}
-{{--    <link rel="stylesheet" type="text/css" href="{{asset('fullPage.js-master/dist/fullpage.css')}}">--}}
-{{--    <script src="{{asset('fullPage.js-master/dist/fullpage.js')}}"></script>--}}
-{{--    <script type="text/javascript" src="{{asset('fullPage.js-master/dist/fullpage.min.js')}}"></script>--}}
-{{--    --}}{{--    wow js--}}
-{{--    <script src="{{asset('WOW-master/dist/wow.min.js')}}"></script>--}}
-{{--    <link rel="stylesheet" href="{{asset('WOW-master/css/libs/animate.css')}}">--}}
+    <script src="{{ asset('style/jquery.min.js') }}"></script>
+    <script src="{{ asset('style/bootstrap.bundle.min.js') }}"></script>
+</head>
+<body>
 
-{{--    <link type="text/css" rel="stylesheet" href="{{asset('style/bootstrap.min.css')}}">--}}
-{{--    <link type="text/css" rel="stylesheet" href="{{asset('A-Iranian-Sans/Iranian Sans.ttf')}}">--}}
-{{--    <link rel="stylesheet" type="text/css" href="{{asset('style/all.css')}}">--}}
-{{--    <link rel="stylesheet" type="text/css" href="{{asset('style/brands.css')}}">--}}
-{{--    <link rel="stylesheet" type="text/css" href="{{asset('style/style.css')}}">--}}
-{{--    <script src="{{asset('style/jquery.min.js')}}"></script>--}}
-{{--    <script src="{{asset('style/bootstrap.bundle.min.js')}}"></script>--}}
-{{--</head>--}}
-{{--<body>--}}
-{{--////////////////////////////////////////////////////////////////////////--}}
-{{--<nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">--}}
-{{--    <div class="container text-light">--}}
-{{--        <div class="w-100 d-flex justify-content-between">--}}
-{{--            <div>--}}
-{{--                <i class="fa fa-envelope mx-2"></i>--}}
-{{--                <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">info@company.com</a>--}}
-{{--                <i class="fa fa-phone mx-2"></i>--}}
-{{--                <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">010-020-0340</a>--}}
-{{--            </div>--}}
-{{--            <div>--}}
-{{--                <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>--}}
-{{--                <a class="text-light" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>--}}
-{{--                <a class="text-light" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-sm fa-fw me-2"></i></a>--}}
-{{--                <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin fa-sm fa-fw"></i></a>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</nav>--}}
-{{--<!-- Close Top Nav -->--}}
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
+    <div class="container text-light">
+        <div class="w-100 d-flex justify-content-between">
+            <div>
+                <i class="fa fa-envelope mx-2"></i>
+                <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">info@company.com</a>
+                <i class="fa fa-phone mx-2"></i>
+                <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
+            </div>
+            <div>
+                <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
+                <a class="text-light" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
+                <a class="text-light" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
+                <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin fa-sm fa-fw"></i></a>
+            </div>
+        </div>
+    </div>
+</nav>
 
-
-{{--<!-- Header -->--}}
-{{--<nav class="navbar navbar-expand-lg navbar-light shadow">--}}
-{{--    <div class="container d-flex justify-content-between align-items-center">--}}
-
-{{--        <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">--}}
-{{--            Zay--}}
-{{--        </a>--}}
-
-{{--        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">--}}
-{{--            <span class="navbar-toggler-icon"></span>--}}
-{{--        </button>--}}
-
-{{--        <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">--}}
-{{--            <div class="flex-fill">--}}
-{{--                <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">--}}
-{{--                    @foreach($menus as $menuu)--}}
-{{--                        @if($menuu->status==0)@continue @endif--}}
-{{--                        <li class="nav-item">--}}
-{{--                            <a href="" class="nav-link text-dark hovered">{{$menuu->title}}</a>--}}
-{{--                        </li>--}}
-{{--                    @endforeach--}}
-{{--                </ul>--}}
-{{--            </div>--}}
-{{--            <div class="navbar align-self-center d-flex">--}}
-{{--                <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">--}}
-{{--                    <div class="input-group">--}}
-{{--                        <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">--}}
-{{--                        <div class="input-group-text">--}}
-{{--                            <i class="fa fa-fw fa-search"></i>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">--}}
-{{--                    <i class="fa fa-fw fa-search text-dark mr-2"></i>--}}
-{{--                </a>--}}
-{{--                <a class="nav-icon position-relative text-decoration-none" href="#">--}}
-{{--                    <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>--}}
-{{--                    <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>--}}
-{{--                </a>--}}
-{{--                <a class="nav-icon position-relative text-decoration-none" href="#">--}}
-{{--                    <i class="fa fa-fw fa-user text-dark mr-3"></i>--}}
-{{--                    <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span>--}}
-{{--                </a>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-
-{{--    </div>--}}
-{{--</nav>--}}
-{{--<!-- Close Header -->--}}
-
-{{--<!-- Modal -->--}}
-{{--<div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">--}}
-{{--    <div class="modal-dialog modal-lg" role="document">--}}
-{{--        <div class="w-100 pt-1 mb-5 text-right">--}}
-{{--            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>--}}
-{{--        </div>--}}
-{{--        <form action="" method="get" class="modal-content modal-body border-0 p-0">--}}
-{{--            <div class="input-group mb-2">--}}
-{{--                <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">--}}
-{{--                <button type="submit" class="input-group-text bg-success text-light">--}}
-{{--                    <i class="fa fa-fw fa-search text-white"></i>--}}
-{{--                </button>--}}
-{{--            </div>--}}
-{{--        </form>--}}
-{{--    </div>--}}
-{{--</div>--}}
+<!-- Header -->
+<nav class="navbar navbar-expand-lg navbar-light shadow">
+    <div class="container d-flex justify-content-between align-items-center">
+        <a class="navbar-brand text-success logo h1 align-self-center" href="{{ route('firstpage') }}">
+            myShop
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="align-self-center collapse navbar-collapse flex-fill d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
+            <div class="flex-fill">
+                <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                    @foreach($menus as $menuu)
+                        @if($menuu->status == 0) @continue @endif
+                        <li class="nav-item">
+                            <a href="" class="nav-link text-dark hovered">{{ $menuu->title }}</a>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+            <div class="navbar align-self-center d-flex">
+                <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-0">
+                    <input type="search" class="form-control" placeholder="Search...">
+                </div>
 
 
+{{--                href="{{ route('cart.index') --}}
+                <a class="btn btn-outline-success">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+                <!-- Login Button -->
+                <a class="btn btn-light ms-2"  href="{{route('login')}}">
+                    <i class="fas fa-user"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
 
-{{--<!-- Start Banner Hero -->--}}
-{{--<div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">--}}
-{{--    <ol class="carousel-indicators">--}}
-{{--        <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>--}}
-{{--        <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>--}}
-{{--        <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="2"></li>--}}
-{{--    </ol>--}}
-{{--    <div class="carousel-inner">--}}
-{{--        <div class="carousel-item active">--}}
-{{--            <div class="container">--}}
-{{--                <div class="row p-5">--}}
-{{--                    <div class="mx-auto col-md-8 col-lg-6 order-lg-last">--}}
-{{--                        <img class="img-fluid" src="./assets/img/banner_img_01.jpg" alt="">--}}
-{{--                    </div>--}}
-{{--                    <div class="col-lg-6 mb-0 d-flex align-items-center">--}}
-{{--                        <div class="text-align-left align-self-center">--}}
-{{--                            <h1 class="h1 text-success"><b>Zay</b> eCommerce</h1>--}}
-{{--                            <h3 class="h2">Tiny and Perfect eCommerce Template</h3>--}}
-{{--                            <p>--}}
-{{--                                Zay Shop is an eCommerce HTML5 CSS template with latest version of Bootstrap 5 (beta 1).--}}
-{{--                                This template is 100% free provided by <a rel="sponsored" class="text-success" href="https://templatemo.com" target="_blank">TemplateMo</a> website.--}}
-{{--                                Image credits go to <a rel="sponsored" class="text-success" href="https://stories.freepik.com/" target="_blank">Freepik Stories</a>,--}}
-{{--                                <a rel="sponsored" class="text-success" href="https://unsplash.com/" target="_blank">Unsplash</a> and--}}
-{{--                                <a rel="sponsored" class="text-success" href="https://icons8.com/" target="_blank">Icons 8</a>.--}}
-{{--                            </p>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--        <div class="carousel-item">--}}
-{{--            <div class="container">--}}
-{{--                <div class="row p-5">--}}
-{{--                    <div class="mx-auto col-md-8 col-lg-6 order-lg-last">--}}
-{{--                        <img class="img-fluid" src="./assets/img/banner_img_02.jpg" alt="">--}}
-{{--                    </div>--}}
-{{--                    <div class="col-lg-6 mb-0 d-flex align-items-center">--}}
-{{--                        <div class="text-align-left">--}}
-{{--                            <h1 class="h1">Proident occaecat</h1>--}}
-{{--                            <h3 class="h2">Aliquip ex ea commodo consequat</h3>--}}
-{{--                            <p>--}}
-{{--                                You are permitted to use this Zay CSS template for your commercial websites.--}}
-{{--                                You are <strong>not permitted</strong> to re-distribute the template ZIP file in any kind of template collection websites.--}}
-{{--                            </p>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--        <div class="carousel-item">--}}
-{{--            <div class="container">--}}
-{{--                <div class="row p-5">--}}
-{{--                    <div class="mx-auto col-md-8 col-lg-6 order-lg-last">--}}
-{{--                        <img class="img-fluid" src="./assets/img/banner_img_03.jpg" alt="">--}}
-{{--                    </div>--}}
-{{--                    <div class="col-lg-6 mb-0 d-flex align-items-center">--}}
-{{--                        <div class="text-align-left">--}}
-{{--                            <h1 class="h1">Repr in voluptate</h1>--}}
-{{--                            <h3 class="h2">Ullamco laboris nisi ut </h3>--}}
-{{--                            <p>--}}
-{{--                                We bring you 100% free CSS templates for your websites.--}}
-{{--                                If you wish to support TemplateMo, please make a small contribution via PayPal or tell your friends about our website. Thank you.--}}
-{{--                            </p>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--    <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev">--}}
-{{--        <i class="fas fa-chevron-left"></i>--}}
-{{--    </a>--}}
-{{--    <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next">--}}
-{{--        <i class="fas fa-chevron-right"></i>--}}
-{{--    </a>--}}
-{{--</div>--}}
-{{--<!-- End Banner Hero -->--}}
+<!-- Start Banner Hero -->
+<div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="container">
+                <div class="row p-5">
+                    <div class="col-md-8 col-lg-6 mx-auto order-lg-last">
+                        <img class="img-fluid rounded shadow" src="https://images.unsplash.com/photo-1521747116042-5a810fda9664?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&q=60&w=600" alt="Proident occaecat" style="height: 400px; object-fit: cover;">
+                    </div>
+                    <div class="col-lg-6 d-flex align-items-center">
+                        <div class="text-align-left">
+                            <h1 class="display-4">Proident occaecat</h1>
+                            <h3 class="h2 text-primary">First</h3>
+                            <p class="lead">You are going to shop from me!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="container">
+                <div class="row p-5">
+                    <div class="col-md-8 col-lg-6 mx-auto order-lg-last">
+                        <img class="img-fluid rounded shadow" src="https://images.unsplash.com/photo-1521747116042-5a810fda9664?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&q=60&w=600" alt="Proident occaecat" style="height: 400px; object-fit: cover;">
+                    </div>
+                    <div class="col-lg-6 d-flex align-items-center">
+                        <div class="text-align-left">
+                            <h1 class="display-4">Proident occaecat</h1>
+                            <h3 class="h2 text-primary">Middle</h3>
+                            <p class="lead">You are going to shop from me!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="container">
+                <div class="row p-5">
+                    <div class="col-md-8 col-lg-6 mx-auto order-lg-last">
+                        <img class="img-fluid rounded shadow" src="https://images.unsplash.com/photo-1521747116042-5a810fda9664?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&q=60&w=600" alt="Proident occaecat" style="height: 400px; object-fit: cover;">
+                    </div>
+                    <div class="col-lg-6 d-flex align-items-center">
+                        <div class="text-align-left">
+                            <h1 class="display-4">Proident occaecat</h1>
+                            <h3 class="h2 text-primary">Last</h3>
+                            <p class="lead">You are going to shop from me!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev">
+        <i class="fas fa-chevron-left fa-2x text-dark"></i>
+    </a>
+    <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next">
+        <i class="fas fa-chevron-right fa-2x text-dark"></i>
+    </a>
+</div>
+<!-- End Banner Hero -->
 
-
-{{--<!-- Start Categories of The Month -->--}}
-{{--<section class="container py-5">--}}
-{{--    <div class="row text-center pt-3">--}}
-{{--        <div class="col-lg-6 m-auto">--}}
-{{--            <h1 class="h1">Categories of The Month</h1>--}}
-{{--            <p>--}}
-{{--                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia--}}
-{{--                deserunt mollit anim id est laborum.--}}
-{{--            </p>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--    <div class="row">--}}
-{{--        @foreach($cat as $c)--}}
-{{--            <div class="col-12 col-md-4 p-5 mt-3">--}}
-
-{{--                <h5 class="text-center mt-3 mb-3">{{$c->title}}</h5>--}}
-{{--                <p class="text-center"><a class="btn btn-success">Go Shop</a></p>--}}
-{{--            </div>--}}
-{{--        @endforeach--}}
-{{--        ////////////////////////////////////////////////////////////////////////////////////////////////--}}
-{{--    </div>--}}
-{{--</section>--}}
-{{--<!-- End Categories of The Month -->--}}
+<!-- Start Categories of The Month -->
+<section class="container py-5">
+    <div class="row text-center pt-3">
+        <div class="col-lg-6 m-auto">
+            <h1 class="h1">Categories of The Month</h1>
+            <p>
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        @foreach($cat as $c)
+            <div class="col-12 col-md-4 p-5 mt-3">
+                <h5 class="text-center mt-3 mb-3">{{ $c->title }}</h5>
+                <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
+            </div>
+        @endforeach
+    </div>
+</section>
+<!-- End Categories of The Month -->
 
 
-{{--<!-- Start Featured Product -->--}}
-{{--<section class="bg-light">--}}
-{{--    @foreach($cat as $cats)--}}
-{{--        @if($cats->status==0)@continue @endif--}}
-{{--        <div class="fs-5 my-3 p-3 border border-bottom- border-top-0 border-end-0 border-start-0 border-warning border-3" style="max-width: fit-content;">{{$cats->title}}</div>--}}
-{{--        <div class="swiper mySwiperr rounded-5" id="prd">--}}
-{{--            <div class="swiper-wrapper bg-dark">--}}
-{{--                @foreach($products as $prd)--}}
-{{--                    @if($prd->category_id==$cats->id && $prd->status==1)--}}
-{{--                        <a href="{{route('product.details',['id'=>$prd->id])}}">--}}
-{{--                        <div class="swiper-slide hovered" style="max-width: min-content">--}}
-{{--                            <div class="card mx-2 w-100 px-3 my-3" style="border: none; min-height: 50vh; max-width: min-content;">--}}
-{{--                                <div class="bg-light rounded-top-5"><img src="{{route('product.show',['id'=>$prd->id])}}" class="rounded-5 p-5 mx-auto pb-0" style="height: 30vh;"></div>--}}
-{{--                                <div class="card-header bg-white border border-0 text-muted">{{$prd->title}}</div>--}}
-{{--                                <div class="card-body rounded-bottom-5 text-white bg-white d-inline-block">--}}
-{{--                                        <span class="rounded-5 text-dark">--}}
-{{--                                             <?php--}}
-{{--                                                $txt2=null;--}}
-{{--                                                $txt=intval(($prd->price)-($prd->price)*($prd->discount/100));--}}
-{{--                                                $txt=$txt.'';--}}
-{{--                                                $txt2=number_format($txt);--}}
-{{--                                                echo $txt2.' تومان';--}}
-{{--                                                ?>--}}
-{{--                                        </span>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </a>--}}
-{{--                    @endif--}}
-{{--                @endforeach--}}
-{{--            </div>--}}
-{{--            <div class="swiper-pagination text-dark"></div>--}}
-{{--            <div class="swiper-button-prev text-dark" ></div>--}}
-{{--            <div class="swiper-button-next text-dark"></div>--}}
-{{--        </div>--}}
-{{--    @endforeach--}}
-{{--</section>--}}
-{{--<!-- End Featured Product -->--}}
+
+<!--  Featured Product -->
 
 
-{{--<!-- Start Footer -->--}}
-{{--<footer class="bg-dark" id="tempaltemo_footer">--}}
-{{--    <div class="container">--}}
-{{--        <div class="row">--}}
 
-{{--            <div class="col-md-4 pt-5">--}}
-{{--                <h2 class="h2 text-success border-bottom pb-3 border-light logo">Zay Shop</h2>--}}
-{{--                <ul class="list-unstyled text-light footer-link-list">--}}
-{{--                    <li>--}}
-{{--                        <i class="fas fa-map-marker-alt fa-fw"></i>--}}
-{{--                        123 Consectetur at ligula 10660--}}
-{{--                    </li>--}}
-{{--                    <li>--}}
-{{--                        <i class="fa fa-phone fa-fw"></i>--}}
-{{--                        <a class="text-decoration-none" href="tel:010-020-0340">010-020-0340</a>--}}
-{{--                    </li>--}}
-{{--                    <li>--}}
-{{--                        <i class="fa fa-envelope fa-fw"></i>--}}
-{{--                        <a class="text-decoration-none" href="mailto:info@company.com">info@company.com</a>--}}
-{{--                    </li>--}}
-{{--                </ul>--}}
-{{--            </div>--}}
 
-{{--            <div class="col-md-4 pt-5">--}}
-{{--                <h2 class="h2 text-light border-bottom pb-3 border-light">Products</h2>--}}
-{{--                <ul class="list-unstyled text-light footer-link-list">--}}
-{{--                    <li><a class="text-decoration-none" href="#">Luxury</a></li>--}}
-{{--                    <li><a class="text-decoration-none" href="#">Sport Wear</a></li>--}}
-{{--                    <li><a class="text-decoration-none" href="#">Men's Shoes</a></li>--}}
-{{--                    <li><a class="text-decoration-none" href="#">Women's Shoes</a></li>--}}
-{{--                    <li><a class="text-decoration-none" href="#">Popular Dress</a></li>--}}
-{{--                    <li><a class="text-decoration-none" href="#">Gym Accessories</a></li>--}}
-{{--                    <li><a class="text-decoration-none" href="#">Sport Shoes</a></li>--}}
-{{--                </ul>--}}
-{{--            </div>--}}
+<section class="bg-light">
+    @foreach($cat as $cats)
+        @if($cats->status == 0) @continue @endif
+        <div class="fs-5 my-3 p-3 border border-bottom-0 border-top-0 border-end-0 border-start-0 border-warning border-3" style="max-width: fit-content;">{{ $cats->title }}</div>
 
-{{--            <div class="col-md-4 pt-5">--}}
-{{--                <h2 class="h2 text-light border-bottom pb-3 border-light">Further Info</h2>--}}
-{{--                <ul class="list-unstyled text-light footer-link-list">--}}
-{{--                    <li><a class="text-decoration-none" href="#">Home</a></li>--}}
-{{--                    <li><a class="text-decoration-none" href="#">About Us</a></li>--}}
-{{--                    <li><a class="text-decoration-none" href="#">Shop Locations</a></li>--}}
-{{--                    <li><a class="text-decoration-none" href="#">FAQs</a></li>--}}
-{{--                    <li><a class="text-decoration-none" href="#">Contact</a></li>--}}
-{{--                </ul>--}}
-{{--            </div>--}}
+        <div class="swiper mySwiperr rounded-5">
+            <div class="swiper-wrapper">
+                @foreach($products as $prd)
+                    @if($prd->category_id == $cats->id && $prd->status == 1)
+                        <div class="swiper-slide">
+                            <div class="card mx-2" style="border: none; min-height: 50vh;">
+                                <a href="{{route('product.details',['id'=>$prd->id])}}">
+                                    <div class="bg-light rounded-top-5">
+                                        <div class="d-flex justify-content-center align-items-center" style="height: 200px;">
+                                            <img src="{{ route('product.show', ['id' => $prd->id]) }}" class="img-fluid rounded" alt="{{ $prd->title }}" style="max-height: 100%; width: auto; object-fit: contain;">
+                                        </div>
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">{{ $prd->title }}</h5>
+                                        <p class="card-text">{{ $prd->description }}</p>
+                                        <p class="card-text text-success">
+                                                <?php
+                                                $txt2=null;
+                                                $txt=intval(($prd->price)-($prd->price)*($prd->discount/100));
+                                                $txt=$txt.'';
+                                                $txt2=number_format($txt);
+                                                echo $txt2.' تومان';
+                                                ?>
+                                        </p>
+                                        <a href="" class="btn btn-primary">Add to Cart</a>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    @endif
+                @endforeach
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next" style="color: black;"></div>
+            <div class="swiper-button-prev" style="color: black;"></div>
+        </div>
+    @endforeach
+</section>
 
-{{--        </div>--}}
 
-{{--        <div class="row text-light mb-4">--}}
-{{--            <div class="col-12 mb-3">--}}
-{{--                <div class="w-100 my-3 border-top border-light"></div>--}}
-{{--            </div>--}}
-{{--            <div class="col-auto me-auto">--}}
-{{--                <ul class="list-inline text-left footer-icons">--}}
-{{--                    <li class="list-inline-item border border-light rounded-circle text-center">--}}
-{{--                        <a class="text-light text-decoration-none" target="_blank" href="http://facebook.com/"><i class="fab fa-facebook-f fa-lg fa-fw"></i></a>--}}
-{{--                    </li>--}}
-{{--                    <li class="list-inline-item border border-light rounded-circle text-center">--}}
-{{--                        <a class="text-light text-decoration-none" target="_blank" href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>--}}
-{{--                    </li>--}}
-{{--                    <li class="list-inline-item border border-light rounded-circle text-center">--}}
-{{--                        <a class="text-light text-decoration-none" target="_blank" href="https://twitter.com/"><i class="fab fa-twitter fa-lg fa-fw"></i></a>--}}
-{{--                    </li>--}}
-{{--                    <li class="list-inline-item border border-light rounded-circle text-center">--}}
-{{--                        <a class="text-light text-decoration-none" target="_blank" href="https://www.linkedin.com/"><i class="fab fa-linkedin fa-lg fa-fw"></i></a>--}}
-{{--                    </li>--}}
-{{--                </ul>--}}
-{{--            </div>--}}
-{{--            <div class="col-auto">--}}
-{{--                <label class="sr-only" for="subscribeEmail">Email address</label>--}}
-{{--                <div class="input-group mb-2">--}}
-{{--                    <input type="text" class="form-control bg-dark border-light" id="subscribeEmail" placeholder="Email address">--}}
-{{--                    <div class="input-group-text btn-success text-light">Subscribe</div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
 
-{{--    <div class="w-100 bg-black py-3">--}}
-{{--        <div class="container">--}}
-{{--            <div class="row pt-2">--}}
-{{--                <div class="col-12">--}}
-{{--                    <p class="text-left text-light">--}}
-{{--                        Copyright &copy; 2021 Company Name--}}
-{{--                        | Designed by <a rel="sponsored" href="https://templatemo.com" target="_blank">TemplateMo</a>--}}
-{{--                    </p>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
 
-{{--</footer>--}}
-{{--<!-- End Footer -->--}}
-{{--</body>--}}
-{{--<script>--}}
-{{--    const swiper = new Swiper('.swiper', {--}}
-{{--        // Optional parameters--}}
-{{--        direction: 'horizontal',--}}
-{{--        loop: true,--}}
 
-{{--        // If we need pagination--}}
-{{--        pagination: {--}}
-{{--            el: '.swiper-pagination',--}}
-{{--        },--}}
 
-{{--        // Navigation arrows--}}
-{{--        navigation: {--}}
-{{--            nextEl: '.swiper-button-next',--}}
-{{--            prevEl: '.swiper-button-prev',--}}
-{{--        },--}}
 
-{{--        // And if we need scrollbar--}}
-{{--        scrollbar: {--}}
-{{--            el: '.swiper-scrollbar',--}}
-{{--        },--}}
-{{--        slidesPerView:'3',--}}
-{{--    });--}}
-{{--</script>--}}
 
-{{--</html>--}}
+
+    <!-- Start Footer -->
+    <footer class="bg-dark text-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="text-uppercase mb-3">About Us</h5>
+                    <p class="text-muted">
+                        We are a team of passionate individuals dedicated to providing the best online shopping experience. Our mission is to offer quality products at competitive prices.
+                    </p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="text-uppercase mb-3">Contact Us</h5>
+                    <p class="text-muted">Email: <a href="mailto:support@myshop.com" class="text-light">support@myShop.com</a></p>
+                    <p class="text-muted">Phone: <a href="tel:+1234567890" class="text-light">+1 234 567 890</a></p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="text-uppercase text-center mb-3">Follow Us</h5>
+                    <div class="d-flex justify-content-center">
+                        <a href="https://twitter.com" class="text-light me-3" target="_blank" rel="noopener noreferrer">
+                            <i class ="fab fa-twitter fa-2x"></i>twitter
+                        </a>
+                        <a href="https://facebook.com" class="text-light me-3" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-facebook-f fa-2x"></i>facebook
+                        </a>
+                        <a href="https://instagram.com" class="text-light" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-instagram fa-2x"></i>instagram
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr class="bg-light my-4">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2023 myShop. All rights reserved.</p>
+                <p class="mb-0">
+                    <a href="#" class="text-light">Privacy Policy</a> |
+                    <a href="#" class="text-light">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const swipers = document.querySelectorAll('.mySwiperr');
+        swipers.forEach(swiperElement => {
+            new Swiper(swiperElement, {
+                loop: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                slidesPerView: 3, // Adjust based on your design
+                spaceBetween: 10, // Space between slides
+                breakpoints: {
+                    640: {
+                        slidesPerView: 1,
+                    },
+                    768: {
+                        slidesPerView: 2,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                    },
+                },
+            });
+        });
+    });
+</script>
+</body>
+</html>
+
+

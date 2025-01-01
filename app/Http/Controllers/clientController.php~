@@ -29,7 +29,7 @@ class clientController extends Controller
     }
     public function profile_client($id){
         if (auth()->user()){
-            return Storage::download(auth()->user()->profile_picture);
+            return Storage::download(auth()->user()->id);
         }
     }
 }

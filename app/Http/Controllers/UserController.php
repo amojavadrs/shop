@@ -34,7 +34,7 @@ class UserController extends Controller
         ]);
 
         if ($request->hasFile('profile_picture')) {
-            $profilePicturePath = $request->file('profile_picture')->store('profile_pictures', 'public');
+            $profilePicturePath = $request->file('profile_picture')->storeAs('profile_pictures');
             $user->profile_picture = $profilePicturePath;
         }
 

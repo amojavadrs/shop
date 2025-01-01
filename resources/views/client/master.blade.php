@@ -25,7 +25,7 @@
                 <div class="text-center p-5 border border-dark borderr my-4 text-dark fs-4 border-2 mx-auto">
                     @if(auth()->user()->profile_picture)
                         <img
-                            src="{{ asset('storage/' . auth()->user()->profile_picture) }}"
+                            src="{{route('profile.pic',['id'=>auth()->user()->profile_picture])}}"
                             alt="User Profile Picture"
                             class="img-fluid rounded-circle"
                             width="100"
