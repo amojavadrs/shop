@@ -71,13 +71,14 @@
                     <input type="search" class="form-control" placeholder="Search...">
                 </div>
 
-
-{{--                href="{{ route('cart.index') --}}
-                <a class="btn btn-outline-success">
+                <!-- Cart Button -->
+                <a class="btn btn-outline-success" href="{{ route('cart.index') }}">
                     <i class="fas fa-shopping-cart"></i>
+                    <span class="badge bg-danger">{{ count(session('cart', [])) }}</span>
                 </a>
+
                 <!-- Login Button -->
-                <a class="btn btn-light ms-2"  href="{{route('login')}}">
+                <a class="btn btn-light ms-2" href="{{ route('login') }}">
                     <i class="fas fa-user"></i>
                 </a>
             </div>
@@ -168,13 +169,7 @@
 </section>
 <!-- End Categories of The Month -->
 
-
-
-<!--  Featured Product -->
-
-
-
-
+<!-- Featured Product -->
 <section class="bg-light">
     @foreach($cat as $cats)
         @if($cats->status == 0) @continue @endif
@@ -186,7 +181,8 @@
                     @if($prd->category_id == $cats->id && $prd->status == 1)
                         <div class="swiper-slide">
                             <div class="card mx-2" style="border: none; min-height: 50vh;">
-                                <a href="{{route('product.details',['id'=>$prd->id])}}">
+                                <!-- Product Image and Text Link to Product Details -->
+                                <a href="{{ route('product.details', ['id' => $prd->id]) }}">
                                     <div class="bg-light rounded-top-5">
                                         <div class="d-flex justify-content-center align-items-center" style="height: 200px;">
                                             <img src="{{ route('product.show', ['id' => $prd->id]) }}" class="img-fluid rounded" alt="{{ $prd->title }}" style="max-height: 100%; width: auto; object-fit: contain;">
@@ -197,16 +193,23 @@
                                         <p class="card-text">{{ $prd->description }}</p>
                                         <p class="card-text text-success">
                                                 <?php
-                                                $txt2=null;
-                                                $txt=intval(($prd->price)-($prd->price)*($prd->discount/100));
-                                                $txt=$txt.'';
-                                                $txt2=number_format($txt);
-                                                echo $txt2.' تومان';
+                                                $txt2 = null;
+                                                $txt = intval(($prd->price) - ($prd->price) * ($prd->discount / 100));
+                                                $txt = $txt . '';
+                                                $txt2 = number_format($txt);
+                                                echo $txt2 . ' تومان';
                                                 ?>
                                         </p>
-                                        <a href="" class="btn btn-primary">Add to Cart</a>
                                     </div>
                                 </a>
+
+                                <!-- Add to Cart Button -->
+                                <form action="{{ route('cart.add') }}" method="POST" class="text-center mt-3">
+                                    @csrf
+                                    <input type="hidden" name="product_id" value="{{ $prd->id }}">
+                                    <input type="number" name="quantity" value="1" min="1" class="form-control d-inline-block w-auto mb-2">
+                                    <button type="submit" class="btn btn-primary">Add to Cart</button>
+                                </form>
                             </div>
                         </div>
                     @endif
@@ -219,55 +222,48 @@
     @endforeach
 </section>
 
-
-
-
-
-
-
-
-
-    <!-- Start Footer -->
-    <footer class="bg-dark text-light py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <h5 class="text-uppercase mb-3">About Us</h5>
-                    <p class="text-muted">
-                        We are a team of passionate individuals dedicated to providing the best online shopping experience. Our mission is to offer quality products at competitive prices.
-                    </p>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h5 class="text-uppercase mb-3">Contact Us</h5>
-                    <p class="text-muted">Email: <a href="mailto:support@myshop.com" class="text-light">support@myShop.com</a></p>
-                    <p class="text-muted">Phone: <a href="tel:+1234567890" class="text-light">+1 234 567 890</a></p>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h5 class="text-uppercase text-center mb-3">Follow Us</h5>
-                    <div class="d-flex justify-content-center">
-                        <a href="https://twitter.com" class="text-light me-3" target="_blank" rel="noopener noreferrer">
-                            <i class ="fab fa-twitter fa-2x"></i>twitter
-                        </a>
-                        <a href="https://facebook.com" class="text-light me-3" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-facebook-f fa-2x"></i>facebook
-                        </a>
-                        <a href="https://instagram.com" class="text-light" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-instagram fa-2x"></i>instagram
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <hr class="bg-light my-4">
-            <div class="text-center">
-                <p class="mb-0">&copy; 2023 myShop. All rights reserved.</p>
-                <p class="mb-0">
-                    <a href="#" class="text-light">Privacy Policy</a> |
-                    <a href="#" class="text-light">Terms of Service</a>
+<!-- Start Footer -->
+<footer class="bg-dark text-light py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <h5 class="text-uppercase mb-3">About Us</h5>
+                <p class="text-muted">
+                    We are a team of passionate individuals dedicated to providing the best online shopping experience. Our mission is to offer quality products at competitive prices.
                 </p>
             </div>
+            <div class="col-md-4 mb-4">
+                <h5 class="text-uppercase mb-3">Contact Us</h5>
+                <p class="text-muted">Email: <a href="mailto:support@myshop.com" class="text-light">support@myShop.com</a></p>
+                <p class="text-muted">Phone: <a href="tel:+1234567890" class="text-light">+1 234 567 890</a></p>
+            </div>
+            <div class="col-md-4 mb-4">
+                <h5 class="text-uppercase text-center mb-3">Follow Us</h5>
+                <div class="d-flex justify-content-center">
+                    <a href="https://twitter.com" class="text-light me-3" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-twitter fa-2x"></i>twitter
+                    </a>
+                    <a href="https://facebook.com" class="text-light me-3" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-facebook-f fa-2x"></i>facebook
+                    </a>
+                    <a href="https://instagram.com" class="text-light" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-instagram fa-2x"></i>instagram
+                    </a>
+                </div>
+            </div>
         </div>
-    </footer>
-    <!-- End Footer -->
+        <hr class="bg-light my-4">
+        <div class="text-center">
+            <p class="mb-0">&copy; 2023 myShop. All rights reserved.</p>
+            <p class="mb-0">
+                <a href="#" class="text-light">Privacy Policy</a> |
+                <a href="#" class="text-light">Terms of Service</a>
+            </p>
+        </div>
+    </div>
+</footer>
+<!-- End Footer -->
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const swipers = document.querySelectorAll('.mySwiperr');
@@ -305,5 +301,3 @@
 </script>
 </body>
 </html>
-
-
