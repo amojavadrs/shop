@@ -15,7 +15,7 @@ class CartController extends Controller
 
     public function store(Request $request)
     {
-return redirect()->route('firstpage')
+return redirect()->route('firstpage');
         $request->validate([
             'product_id' => 'required|exists:products,id',
             'quantity' => 'required|integer|min:1',
